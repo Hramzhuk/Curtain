@@ -1,0 +1,25 @@
+ body {
+            background: url(helloween.jpg);
+
+        }
+        .date {
+            background: #e5b116; 
+        }
+        .button {
+            background: #FF9800;
+			border-radius: 26px;
+        }
+        .menu {
+            background: #e95a15;
+        }
+		.window-fold {
+			background: #ffbf00;
+		}
+		.collapse-btn {
+			background: #ff9800;
+		}
+		.close-btn {
+			background: #ffc543;
+		}
+		.window-head {
+			background: #f44336;

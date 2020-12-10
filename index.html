@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>YarOS</title>
+    <link rel="stylesheet" href="style.css">
+	<link id="theme" rel="stylesheet" href="standart.css">
+</head>
+
+<body class="start-download">
+    <div class="download-screen">
+        <div class="welcome">Добро пожаловать в YarOS</div>
+        <div id="greyProgress">
+            <div id="greenBar">10%</div>
+        </div>
+    </div>
+    <div class="wrapper hide-os">
+
+        <div class="header">
+            <div class="date" title="Часы"></div>
+            <div class="button" title="открыть меню">Y</div>
+            <div class="menu">
+                <ul class="menu-items">
+                    <li onclick="app.showWindow()" title="открыть вкладку приложения">Приложения</li>
+                    <li onclick="options.showWindow()" title="открыть вкладку настройки">Настройки</li>
+                    <li onclick="sysInfo.showWindow()" title="открыть вкладку система">Система</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="window-standart app">
+        <div class="window-head">
+            <span class="name-window">приложения</span>
+            <button class="close-btn" onclick="app.closeWindow()" title="закрыть">X</button>
+            <button class="collapse-btn" onclick="app.folding()" title="свернуть">&lt;</button>
+        </div>
+        <div class="main-window">
+            <p>Тут будут приложения</p>
+        </div>
+    </div>
+
+    <div class="window-standart system">
+        <div class="window-head">
+            <span class="name-window">информация о системе</span>
+            <button class="close-btn" onclick="sysInfo.closeWindow()" title="закрыть">X</button>
+            <button class="collapse-btn" onclick="sysInfo.folding()" title="свернуть">&lt;</button>
+        </div>
+        <div class="main-window">
+            <p>Операционная сиcтема: YarOS</p>
+            <p>Версия: 1.0.0.836</p>
+            <p>Тип: 64(бит)</p>
+        </div>
+    </div>
+
+    <div class="window-standart options">
+        <div class="window-head">
+            <span class="name-window">настройки системы</span>
+            <button class="close-btn" onclick="options.closeWindow()" title="закрыть">X</button>
+            <button class="collapse-btn" onclick="options.folding()" title="свернуть">&lt;</button>
+        </div>
+        <div class="main-window">
+            <p>
+                Темы
+                <select name="" id="select-theme" style="background: #cddc39;">
+					<option value="standart">Стандартная</option>
+					<option value="winter">Зимняя тема</option>
+					<option value="helloween">halloween</option>
+                </select>
+            </p>
+        </div>
+    </div>
+    <div class="folding">
+
+    </div>
+    <script>
+        var colors = {
+            'liteGreen': '#cddc39',
+            'purple': '#673ab7',
+            'darkGreen': '#4caf50',
+            'brown': '#795548',
+			'helloween': 'url(helloween.jpg)'
+        }
+		
+
+        class OsWindow {
+            
+            constructor(className) {
+                this.selector = '.' + className; //Alex: используется здесь и в makeDraggable()
+                this.element = document.querySelector(this.selector);
+            }
+
+            showWindow() {
+                this.element.style.display = 'block';
+                this.element.style.zIndex = OsWindow.prototype.priore++; //Alex
+            }
+
+            closeWindow() {
+                this.element.style.display = 'none';
+
+            }
+
+            folding() {
+                this.element.style.left = '-1000px';
+                var newEl = document.createElement('div');
+                newEl.className = 'window-fold';
+                newEl.innerHTML = this.element.children[0].children[0].innerHTML[0].toUpperCase();
+                var cls = this.selector; //Alex
+                newEl.onclick = function() {
+                    OsWindow.prototype.priore++;
+                    document.querySelector(cls).style.left = "35%";
+                    document.querySelector(cls).style.zIndex = OsWindow.prototype.priore;
+                    newEl.remove();
+                }
+                document.querySelector('.folding').append(newEl);
+            }
+        }
+        OsWindow.prototype.priore = 1;
+
+
+        var app = new OsWindow('app');
+        var options = new OsWindow('options');
+        var sysInfo = new OsWindow('system');
+
+        const windows = [app, options, sysInfo]; //Alex
+
+        /* //Alex: Не используется
+        function openWindow(elClass) {
+            document.querySelector('.' + elClass).style.display = 'block';
+            document.querySelector('.' + elClass).style.zIndex = priore;
+            priore++
+        }
+        */
+
+		/* Функция смены темы */
+        document.querySelector('#select-theme').onchange = function() {
+            var sel = document.querySelector('#select-theme');
+            document.querySelector('#theme').href = sel.value + '.css';
+            sel.style.background = colors[sel.value];
+            localStorage.theme = sel.value;
+        }
+
+//        function folding(cls) {
+//            var el = document.querySelector('.' + cls);
+//            el.style.left = '-1000px';
+//            var newEl = document.createElement('div');
+//            newEl.className = 'window-fold';
+//            newEl.innerHTML = el.children[0].children[0].innerHTML[0].toUpperCase();
+//            newEl.onclick = function() {
+//                priore++
+//                el.style.left = "35%";
+//                el.style.zIndex = priore;
+//                newEl.remove();
+//            }
+//            document.querySelector('.folding').append(newEl);
+//        }
+
+        document.querySelector('.button').onclick = function() {
+            document.querySelector('.menu').classList.toggle('menu-open')
+
+        }
+        window.onload = setInterval(function() {
+            a = new Date();
+            document.querySelector('.date').innerHTML = a.toLocaleTimeString();
+            
+            //Alex
+            windows.forEach(function(w){
+              makeDraggable(w.selector);
+            });
+              
+        }, 1000)
+
+        function move() {
+            var elem = document.getElementById("greenBar");
+            var width = 10;
+            var id = setInterval(frame, 40);
+
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                    elem.innerHTML = width * 1 + '%';
+
+                }
+
+            }
+
+        }
+        move()
+
+        function download() {
+		if (localStorage.theme) {
+                document.querySelector('#theme').href = localStorage.theme + '.css';
+                document.querySelector('#select-theme').value = localStorage.theme;
+            document.querySelector('body').classList.toggle('start-download');
+            document.querySelector('.download-screen').style.display = "none";
+            document.querySelector('.wrapper').classList.toggle('hide-os');
+            
+                
+
+            }
+        }
+        <!-- setTimeout(download, 3700); -->
+		setTimeout(download, 3700);
+
+
+        /*
+        var dragWindow = document.querySelector('.app');
+
+        dragWindow.ondblclick = function(e) { // 1. отследить нажатие
+
+            // подготовить к перемещению
+            // 2. разместить на том же месте, но в абсолютных координатах
+            moveAt(e);
+            // переместим в body, чтобы мяч был точно не внутри position:relative
+            document.body.appendChild(dragWindow);
+
+            dragWindow.style.zIndex = 1000; // показывать мяч над другими элементами
+
+            // передвинуть мяч под координаты курсора
+            // и сдвинуть на половину ширины/высоты для центрирования
+            function moveAt(e) {
+                console.log(e.pageY);
+                if (e.pageX < 1146 & e.pageX > 132 & e.pageY > 169 & e.pageY < 562) {
+                    dragWindow.style.left = e.pageX - dragWindow.offsetWidth / 2 + 'px';
+                    dragWindow.style.top = e.pageY - dragWindow.offsetHeight / 2 + 'px';
+                }
+
+            }
+
+            // 3, перемещать по экрану
+            document.onmousemove = function(e) {
+                moveAt(e);
+            }
+
+            // 4. отследить окончание переноса
+            dragWindow.onmouseup = function() {
+                document.onmousemove = null;
+                dragWindow.onmouseup = null;
+            }
+        }
+        */
+        
+        //Alex
+        function makeDraggable(sel) {
+          var wnd = document.querySelector(sel);
+          wnd.ondblclick = function(e) {
+            // подготовить к перемещению
+            // 2. разместить на том же месте, но в абсолютных координатах
+            moveAt(e);
+            // переместим в body, чтобы мяч был точно не внутри position:relative
+            document.body.appendChild(wnd);
+
+            wnd.style.zIndex = 1000; // показывать мяч над другими элементами
+
+            // передвинуть мяч под координаты курсора
+            // и сдвинуть на половину ширины/высоты для центрирования
+            function moveAt(e) {
+                console.log('x ' + e.pageX);
+				console.log('y ' + e.pageY);
+                if (e.pageX < 1146 & e.pageX > 132 & e.pageY > 169 & e.pageY < 562) {
+                    wnd.style.left = e.pageX - wnd.offsetWidth / 2 + 'px';
+                    wnd.style.top = e.pageY - wnd.offsetHeight / 2 + 'px';
+                }
+
+            }
+
+            // 3, перемещать по экрану
+            document.onmousemove = function(e) {
+                moveAt(e);
+            }
+
+            // 4. отследить окончание переноса
+            wnd.onmouseup = function() {
+                document.onmousemove = null;
+                wnd.onmouseup = null;
+            }
+          }
+        }        
+
+    </script>
+</body>
+
+</html>
