@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>YarOS</title>
     <link rel="stylesheet" href="style.css">
-	<link id="theme" rel="stylesheet" href="standart.css">
+    <link id="theme" rel="stylesheet" href="standart.css">
 </head>
 
 <body class="start-download">
@@ -18,7 +18,7 @@
     <div class="wrapper hide-os">
 
         <div class="header">
-            <div class="date" title="Часы"></div>
+            
             <div class="button" title="открыть меню">Y</div>
             <div class="menu">
                 <ul class="menu-items">
@@ -27,6 +27,27 @@
                     <li onclick="sysInfo.showWindow()" title="открыть вкладку система">Система</li>
                 </ul>
             </div>
+        </div>
+        <div class="bottom-calendar">
+           <div class="date" title="Часы"></div>
+            <table id="calendar2">
+                <thead>
+                    <tr>
+                        <td>‹
+                        <td colspan="5">
+                        <td>›
+                    </tr>
+                    <tr>
+                        <td>Пн
+                        <td>Вт
+                        <td>Ср
+                        <td>Чт
+                        <td>Пт
+                        <td>Сб
+                        <td>Вс
+                    </tr>
+                <tbody>
+            </table>
         </div>
     </div>
 
@@ -49,8 +70,9 @@
         </div>
         <div class="main-window">
             <p>Операционная сиcтема: YarOS</p>
-            <p>Версия: 1.0.0.836</p>
+            <p>Версия: 2.0</p>
             <p>Тип: 64(бит)</p>
+            <p>Создана: 12 Апреля 2020 г.</p>
         </div>
     </div>
 
@@ -59,14 +81,15 @@
             <span class="name-window">настройки системы</span>
             <button class="close-btn" onclick="options.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="options.folding()" title="свернуть">&lt;</button>
+
         </div>
         <div class="main-window">
             <p>
-                Темы
+                Тема:
                 <select name="" id="select-theme" style="background: #cddc39;">
-					<option value="standart">Стандартная</option>
-					<option value="winter">Зимняя тема</option>
-					<option value="helloween">halloween</option>
+                    <option value="standart">Стандартная</option>
+                    <option value="winter">Зимняя тема</option>
+                    <option value="helloween">halloween</option>
                 </select>
             </p>
         </div>
@@ -80,12 +103,12 @@
             'purple': '#673ab7',
             'darkGreen': '#4caf50',
             'brown': '#795548',
-			'helloween': 'url(helloween.jpg)'
+            'helloween': 'url(helloween.jpg)'
         }
-		
+
 
         class OsWindow {
-            
+
             constructor(className) {
                 this.selector = '.' + className; //Alex: используется здесь и в makeDraggable()
                 this.element = document.querySelector(this.selector);
@@ -133,7 +156,7 @@
         }
         */
 
-		/* Функция смены темы */
+        /* Функция смены темы */
         document.querySelector('#select-theme').onchange = function() {
             var sel = document.querySelector('#select-theme');
             document.querySelector('#theme').href = sel.value + '.css';
@@ -141,20 +164,20 @@
             localStorage.theme = sel.value;
         }
 
-//        function folding(cls) {
-//            var el = document.querySelector('.' + cls);
-//            el.style.left = '-1000px';
-//            var newEl = document.createElement('div');
-//            newEl.className = 'window-fold';
-//            newEl.innerHTML = el.children[0].children[0].innerHTML[0].toUpperCase();
-//            newEl.onclick = function() {
-//                priore++
-//                el.style.left = "35%";
-//                el.style.zIndex = priore;
-//                newEl.remove();
-//            }
-//            document.querySelector('.folding').append(newEl);
-//        }
+        //        function folding(cls) {
+        //            var el = document.querySelector('.' + cls);
+        //            el.style.left = '-1000px';
+        //            var newEl = document.createElement('div');
+        //            newEl.className = 'window-fold';
+        //            newEl.innerHTML = el.children[0].children[0].innerHTML[0].toUpperCase();
+        //            newEl.onclick = function() {
+        //                priore++
+        //                el.style.left = "35%";
+        //                el.style.zIndex = priore;
+        //                newEl.remove();
+        //            }
+        //            document.querySelector('.folding').append(newEl);
+        //        }
 
         document.querySelector('.button').onclick = function() {
             document.querySelector('.menu').classList.toggle('menu-open')
@@ -163,12 +186,12 @@
         window.onload = setInterval(function() {
             a = new Date();
             document.querySelector('.date').innerHTML = a.toLocaleTimeString();
-            
+
             //Alex
-            windows.forEach(function(w){
-              makeDraggable(w.selector);
+            windows.forEach(function(w) {
+                makeDraggable(w.selector);
             });
-              
+
         }, 1000)
 
         function move() {
@@ -192,19 +215,18 @@
         move()
 
         function download() {
-		if (localStorage.theme) {
+            if (localStorage.theme) {
                 document.querySelector('#theme').href = localStorage.theme + '.css';
                 document.querySelector('#select-theme').value = localStorage.theme;
-            document.querySelector('body').classList.toggle('start-download');
-            document.querySelector('.download-screen').style.display = "none";
-            document.querySelector('.wrapper').classList.toggle('hide-os');
-            
-                
+                document.querySelector('body').classList.toggle('start-download');
+                document.querySelector('.download-screen').style.display = "none";
+                document.querySelector('.wrapper').classList.toggle('hide-os');
+
+
 
             }
         }
-        <!-- setTimeout(download, 3700); -->
-		setTimeout(download, 3700);
+        setTimeout(download, 3700);
 
 
         /*
@@ -243,43 +265,85 @@
             }
         }
         */
-        
+
         //Alex
         function makeDraggable(sel) {
-          var wnd = document.querySelector(sel);
-          wnd.ondblclick = function(e) {
-            // подготовить к перемещению
-            // 2. разместить на том же месте, но в абсолютных координатах
-            moveAt(e);
-            // переместим в body, чтобы мяч был точно не внутри position:relative
-            document.body.appendChild(wnd);
+            var wnd = document.querySelector(sel);
+            wnd.ondblclick = function(e) {
+                // подготовить к перемещению
+                // 2. разместить на том же месте, но в абсолютных координатах
+                moveAt(e);
+                // переместим в body, чтобы мяч был точно не внутри position:relative
+                document.body.appendChild(wnd);
 
-            wnd.style.zIndex = 1000; // показывать мяч над другими элементами
+                wnd.style.zIndex = 1000; // показывать мяч над другими элементами
 
-            // передвинуть мяч под координаты курсора
-            // и сдвинуть на половину ширины/высоты для центрирования
-            function moveAt(e) {
-                console.log('x ' + e.pageX);
-				console.log('y ' + e.pageY);
-                if (e.pageX < 1146 & e.pageX > 132 & e.pageY > 169 & e.pageY < 562) {
-                    wnd.style.left = e.pageX - wnd.offsetWidth / 2 + 'px';
-                    wnd.style.top = e.pageY - wnd.offsetHeight / 2 + 'px';
+                // передвинуть мяч под координаты курсора
+                // и сдвинуть на половину ширины/высоты для центрирования
+                function moveAt(e) {
+                    console.log('x ' + e.pageX);
+                    console.log('y ' + e.pageY);
+                    if (e.pageX < 1146 & e.pageX > 132 & e.pageY > 169 & e.pageY < 562) {
+                        wnd.style.left = e.pageX - wnd.offsetWidth / 2 + 'px';
+                        wnd.style.top = e.pageY - wnd.offsetHeight / 2 + 'px';
+                    }
+
                 }
 
-            }
+                // 3, перемещать по экрану
+                document.onmousemove = function(e) {
+                    moveAt(e);
+                }
 
-            // 3, перемещать по экрану
-            document.onmousemove = function(e) {
-                moveAt(e);
+                // 4. отследить окончание переноса
+                wnd.onmouseup = function() {
+                    document.onmousemove = null;
+                    wnd.onmouseup = null;
+                }
             }
+        }
 
-            // 4. отследить окончание переноса
-            wnd.onmouseup = function() {
-                document.onmousemove = null;
-                wnd.onmouseup = null;
+
+        function Calendar2(id, year, month) {
+            var Dlast = new Date(year, month + 1, 0).getDate(),
+                D = new Date(year, month, Dlast),
+                DNlast = new Date(D.getFullYear(), D.getMonth(), Dlast).getDay(),
+                DNfirst = new Date(D.getFullYear(), D.getMonth(), 1).getDay(),
+                calendar = '<tr>',
+                month = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+            if (DNfirst != 0) {
+                for (var i = 1; i < DNfirst; i++) calendar += '<td>';
+            } else {
+                for (var i = 0; i < 6; i++) calendar += '<td>';
             }
-          }
-        }        
+            for (var i = 1; i <= Dlast; i++) {
+                if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+                    calendar += '<td class="today">' + i;
+                } else {
+                    calendar += '<td>' + i;
+                }
+                if (new Date(D.getFullYear(), D.getMonth(), i).getDay() == 0) {
+                    calendar += '<tr>';
+                }
+            }
+            for (var i = DNlast; i < 7; i++) calendar += '<td>&nbsp;';
+            document.querySelector('#' + id + ' tbody').innerHTML = calendar;
+            document.querySelector('#' + id + ' thead td:nth-child(2)').innerHTML = month[D.getMonth()] + ' ' + D.getFullYear();
+            document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.month = D.getMonth();
+            document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.year = D.getFullYear();
+            if (document.querySelectorAll('#' + id + ' tbody tr').length < 6) { // чтобы при перелистывании месяцев не "подпрыгивала" вся страница, добавляется ряд пустых клеток. Итог: всегда 6 строк для цифр
+                document.querySelector('#' + id + ' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
+            }
+        }
+        Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth());
+        // переключатель минус месяц
+        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
+            Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) - 1);
+        }
+        // переключатель плюс месяц
+        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
+            Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) + 1);
+        }
 
     </script>
 </body>

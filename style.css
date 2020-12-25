@@ -17,8 +17,10 @@
         }
 
         .date {
+/*
             border: 1px solid black;
             width: 1263px;
+*/
             text-align: center;
             height: 23.33px;
             user-select: none;
@@ -33,7 +35,7 @@
             text-align: center;
             cursor: pointer;
             user-select: none;
-			margin-top: 1px;
+            margin-top: 1px;
         }
 
         .menu {
@@ -47,7 +49,7 @@
             overflow: hidden;
             opacity: 0;
             white-space: nowrap;
-			margin-top: 1px;
+            margin-top: 1px;
         }
 
         .menu-open {
@@ -55,7 +57,7 @@
             width: 1175px;
             text-align: center;
             opacity: 100;
-			margin-top: 1px;
+            margin-top: 1px;
         }
 
         .menu-items li {
@@ -150,7 +152,7 @@
             background: white;
             display: none;
             user-select: none;
-/*            transition: 1s;*/
+            /*            transition: 1s;*/
         }
 
         .main-window {
@@ -178,11 +180,60 @@
             height: 50px;
             background: #989898;
             border: 1px solid black;
-			border-radius: 8px;
+            border-radius: 8px;
             text-align: center;
             font-size: 220px;
             font-size: 35px;
             user-select: none;
             margin-top: 5px;
-			cursor: pointer;
+            cursor: pointer;
         }
+
+
+        /* Calendar */
+
+        #calendar2 {
+            width: 190px;
+            font: monospace;
+            line-height: 1.2em;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        #calendar2 thead tr:last-child {
+            font-size: small;
+            color: rgb(85, 85, 85);
+        }
+
+        #calendar2 thead tr:nth-child(1) td:nth-child(2) {
+            color: rgb(50, 50, 50);
+        }
+
+        #calendar2 thead tr:nth-child(1) td:nth-child(1):hover,
+        #calendar2 thead tr:nth-child(1) td:nth-child(3):hover {
+            cursor: pointer;
+        }
+
+        #calendar2 tbody td {
+            color: rgb(44, 86, 122);
+            width: 12px;
+        }
+
+        #calendar2 tbody td:nth-child(n+6),
+        #calendar2 .holiday {
+            color: rgb(231, 140, 92);
+        }
+
+        #calendar2 tbody td.today {
+            background: rgb(220, 0, 0);
+            color: #fff;
+        }
+
+        .bottom-calendar {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            user-select: none;
+        }
+
+        /* Calendar */
