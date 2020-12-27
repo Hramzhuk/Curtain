@@ -195,16 +195,14 @@
 		if (localStorage.theme) {
                 document.querySelector('#theme').href = localStorage.theme + '.css';
                 document.querySelector('#select-theme').value = localStorage.theme;
-            document.querySelector('body').classList.toggle('start-download');
-            document.querySelector('.download-screen').style.display = "none";
-            document.querySelector('.wrapper').classList.toggle('hide-os');
-            
-                
-
-            }
         }
-        <!-- setTimeout(download, 3700); -->
+        document.querySelector('body').classList.toggle('start-download');
+        document.querySelector('.download-screen').style.display = "none";
+        document.querySelector('.wrapper').classList.toggle('hide-os');
+        }
+
 		setTimeout(download, 3700);
+
 
 
         /*
