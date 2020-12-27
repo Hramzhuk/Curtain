@@ -17,7 +17,7 @@
         }
 
         .date {
-/*
+            /*
             border: 1px solid black;
             width: 1263px;
 */
@@ -189,6 +189,10 @@
             cursor: pointer;
         }
 
+        .donation {
+            text-decoration: none;
+            color: yellow;
+        }
 
         /* Calendar */
 
