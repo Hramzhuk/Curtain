@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>YarOS</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calc/style.css">
     <link id="theme" rel="stylesheet" href="standart.css">
     <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
 </head>
@@ -62,19 +63,19 @@
             <button class="collapse-btn" onclick="app.folding()" title="свернуть">&lt;</button>
         </div>
         <div class="main-window">
-            <p>Тут будут приложения</p>
+            <button onclick="calc.showWindow()">Calc</button>
         </div>
     </div>
 
     <div class="window-standart system">
-        <div class="window-head">
+        <div class="window-head-system">
             <span class="name-window">информация о системе</span>
             <button class="close-btn" onclick="sysInfo.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="sysInfo.folding()" title="свернуть">&lt;</button>
         </div>
         <div class="main-window">
             <p>Операционная сиcтема: YarOS</p>
-            <p>Версия: 2.1.0</p>
+            <p>Версия: 2.2.1</p>
             <p>Тип: 64(бит)</p>
             <p>Создана: 12 Апреля 2020 г.</p>
         </div>
@@ -96,6 +97,21 @@
                     <option value="chrismas">chrismas</option>
                 </select>
             </p>
+        </div>
+    </div>
+        <div class="window-standart calc">
+        <div class="window-head">
+            <span class="name-window">Калькулятор</span>
+            <button class="close-btn" onclick="calc.closeWindow()" title="закрыть">X</button>
+            <button class="collapse-btn" onclick="calc.folding()" title="свернуть">&lt;</button>
+        </div>
+        <div class="container">
+            <div class="view">0</div>
+        </div>
+
+        <script src="calc/calc.js"></script>
+        <div class="main-window">
+
         </div>
     </div>
     <div class="folding">
@@ -149,8 +165,9 @@
         var app = new OsWindow('app');
         var options = new OsWindow('options');
         var sysInfo = new OsWindow('system');
+        var calc = new OsWindow('calc');
 
-        const windows = [app, options, sysInfo]; //Alex
+        const windows = [app, options, sysInfo, calc]; //Alex
 
         /* //Alex: Не используется
         function openWindow(elClass) {
@@ -471,8 +488,5 @@
         if (browserok) {
             window.onload = initsnow
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
