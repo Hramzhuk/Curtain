@@ -2,15 +2,19 @@ body {
     background: (rgb) 205, 220, 57;
 
 }
+
 .date {
-    background: #9e9e9e; 
+    background: #9e9e9e;
 }
+
 .button {
     background: #ffc107;
 }
+
 .menu {
     background: #2196f3;
 }
+
 .greenBar {
     width: 10%;
     height: 30px;
@@ -20,6 +24,7 @@ body {
     color: white;
     text-align: center;
 }
+
 .start-download {
     background: #FF9800;
     overflow: hidden;

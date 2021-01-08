@@ -242,3 +242,8 @@
         }
 
         /* Calendar */
+
+        .report {
+            color: red;
+            text-decoration: none;
+        }
