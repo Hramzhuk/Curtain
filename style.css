@@ -24,12 +24,13 @@
             text-align: center;
             height: 23.33px;
             user-select: none;
+            border: 2px solid black
         }
 
         .button {
             height: 85px;
             width: 85px;
-            border: 1px solid black;
+            border: 2px solid black;
             font-size: 75px;
             font-family: sans-serif;
             text-align: center;
@@ -45,7 +46,7 @@
             width: 1px;
             top: 7px;
             left: 96px;
-            border: 1px solid black;
+            border: 2px solid black;
             overflow: hidden;
             opacity: 0;
             white-space: nowrap;
@@ -204,6 +205,7 @@
             font-size: 15px;
             text-align: center;
             background: white;
+            border: 2px solid black
         }
 
         #calendar2 thead tr:last-child {
@@ -254,4 +256,11 @@
             background: #00b0ff;
             height: 37px;
             width: 411px;
+        }
+
+        .app-icon {
+            height: 59px;
+            padding: 12px;
+            cursor: pointer;
+            user-select: none
         }

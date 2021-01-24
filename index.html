@@ -58,18 +58,19 @@
 
     <div class="window-standart app">
         <div class="window-head">
-            <span class="name-window">приложения</span>
+            <span class="name-window">Приложения</span>
             <button class="close-btn" onclick="app.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="app.folding()" title="свернуть">&lt;</button>
         </div>
         <div class="main-window">
-            <button onclick="calc.showWindow()">Calc</button>
+            <img class="app-icon" title="калькулятор" onclick="calc.showWindow()" src="calculator_icon.jpg">
+            <img class="app-icon" title="блокнот" onclick="notepad.showWindow()" src="notepad_icon.jpg">
         </div>
     </div>
 
     <div class="window-standart system">
         <div class="window-head-system">
-            <span class="name-window">информация о системе</span>
+            <span class="name-window">Информация о системе</span>
             <button class="close-btn" onclick="sysInfo.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="sysInfo.folding()" title="свернуть">&lt;</button>
         </div>
@@ -83,7 +84,7 @@
 
     <div class="window-standart options">
         <div class="window-head">
-            <span class="name-window">настройки системы</span>
+            <span class="name-window">Настройки системы</span>
             <button class="close-btn" onclick="options.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="options.folding()" title="свернуть">&lt;</button>
 
@@ -94,17 +95,17 @@
                 <select name="" id="select-theme" style="background: #cddc39;">
                     <option value="standart">Стандартная</option>
                     <option value="winter">Зимняя тема</option>
-                    <option value="chrismas">chrismas</option>
                 </select>
             </p>
         </div>
     </div>
-        <div class="window-standart calc">
+    <div class="window-standart calc">
         <div class="window-head">
             <span class="name-window">Калькулятор</span>
             <button class="close-btn" onclick="calc.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="calc.folding()" title="свернуть">&lt;</button>
         </div>
+
         <div class="container">
             <div class="view">0</div>
         </div>
@@ -114,19 +115,20 @@
 
         </div>
     </div>
+    <div class="window-standart notepad">
+        <div class="window-head">
+            <span class="name-window">Блокнот</span>
+            <button class="close-btn" onclick="notepad.closeWindow()" title="закрыть">X</button>
+            <button class="collapse-btn" onclick="otepad.folding()" title="свернуть">&lt;</button>
+        </div>
+        <div>
+            <textarea name="" id="notepad-text" onchange="saveNotepad()" cols="47" rows="14"></textarea>
+        </div>
+    </div>
     <div class="folding">
 
     </div>
     <script>
-        var colors = {
-            'liteGreen': '#cddc39',
-            'purple': '#673ab7',
-            'darkGreen': '#4caf50',
-            'brown': '#795548',
-            'helloween': 'url(helloween.jpg)'
-        }
-
-
         class OsWindow {
 
             constructor(className) {
@@ -166,8 +168,9 @@
         var options = new OsWindow('options');
         var sysInfo = new OsWindow('system');
         var calc = new OsWindow('calc');
+        var notepad = new OsWindow('notepad');
 
-        const windows = [app, options, sysInfo, calc]; //Alex
+        const windows = [app, options, sysInfo, calc, notepad]; //Alex
 
         /* //Alex: Не используется
         function openWindow(elClass) {
@@ -353,6 +356,14 @@
                 document.querySelector('#' + id + ' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
             }
         }
+        if (localStorage.notepad) {
+            document.querySelector('#notepad-text').value = localStorage.notepad;
+        }
+
+
+        function saveNotepad() {
+            localStorage.notepad = document.querySelector('#notepad-text').value;
+        }
         Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth());
         // переключатель минус месяц
         document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
@@ -488,5 +499,8 @@
         if (browserok) {
             window.onload = initsnow
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
