@@ -65,6 +65,7 @@
         <div class="main-window">
             <img class="app-icon" title="калькулятор" onclick="calc.showWindow()" src="calculator_icon.png">
             <img class="app-icon" title="блокнот" onclick="notepad.showWindow()" src="notepad_icon.png">
+			<img class="app-icon" title="стрелец" onclick="game.showWindow()" src="target_icon.png">
         </div>
     </div>
 
@@ -74,9 +75,9 @@
             <button class="close-btn" onclick="sysInfo.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="sysInfo.folding()" title="свернуть">&lt;</button>
         </div>
-        <div class="main-window">
+			<div class="main-window">
             <p>Операционная сиcтема: YarOS</p>
-            <p>Версия: 2.2.1</p>
+            <p>Версия: 2.3.1</p>
             <p>Тип: 64(бит)</p>
             <p>Создана: 12 Апреля 2020 г.</p>
         </div>
@@ -89,7 +90,7 @@
             <button class="collapse-btn" onclick="options.folding()" title="свернуть">&lt;</button>
 
         </div>
-        <div class="main-window">
+			<div class="main-window">
             <p>
                 Тема:
                 <select name="" id="select-theme" style="background: #cddc39;">
@@ -107,13 +108,12 @@
             <button class="close-btn" onclick="calc.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="calc.folding()" title="свернуть">&lt;</button>
         </div>
-
-        <div class="container">
+			<div class="main-window">
+			<div class="container">
             <div class="view">0</div>
         </div>
 
         <script src="calc/calc.js"></script>
-        <div class="main-window">
 
         </div>
     </div>
@@ -127,10 +127,46 @@
             <textarea name="" id="notepad-text" onchange="saveNotepad()" cols="47" rows="14"></textarea>
         </div>
     </div>
+	<div class="window-standart game">
+        <div class="window-head">
+            <span class="name-window">Стрелец</span>
+            <button class="close-btn" onclick="game.closeWindow()" title="закрыть">X</button>
+            <button class="collapse-btn" onclick="game.folding()" title="свернуть">&lt;</button>
+        </div>
+			<div class="main-window" style="text-align: center;">
+			<p>Компьютер загадал мишенью.</p>
+			<p>попробуйте угадать какую.</p>
+			<p style="text-align: center">Результат: <span id="result"></span></p>
+			<img class="vanty" onclick="startGame(1)" src="target.png" alt="" height="59px">
+			<img class="vanty" onclick="startGame(2)" src="target.png" alt="" height="59px">
+			<img class="vanty" onclick="startGame(3)" src="target.png" alt="" height="59px">
+			<p>
+        </div>
+    </div>
     <div class="folding">
 
     </div>
     <script>
+		function randColor() {
+		var r = Math.floor(Math.random() * (256)),
+			g = Math.floor(Math.random() * (256)),
+			b = Math.floor(Math.random() * (256));
+    return '#' + r.toString(16) + g.toString(16) + b.toString(16);
+}
+	function startGame(number) {
+		min = 1;
+		max = 4;
+		digit = Math.floor(Math.random() * (max - min)) + min;
+		console.log(digit);
+		result = document.getElementById('result')
+		if(number == digit) {
+			result.innerHTML = 'Вы угадали';
+		} else {
+			result.innerHTML = "Вы не угадали";
+		}
+		result.style.background = randColor();
+	  
+	}
         class OsWindow {
 
             constructor(className) {
@@ -171,8 +207,9 @@
         var sysInfo = new OsWindow('system');
         var calc = new OsWindow('calc');
         var notepad = new OsWindow('notepad');
+		var game = new OsWindow('game');
 
-        const windows = [app, options, sysInfo, calc, notepad]; //Alex
+        const windows = [app, options, sysInfo, calc, notepad, game]; //Alex
 
         /* //Alex: Не используется
         function openWindow(elClass) {

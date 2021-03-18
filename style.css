@@ -259,8 +259,8 @@
         }
 
         .app-icon {
-            height: 59px;
-            padding: 12px;
+            height: 63px;
+            padding: 6px;
             cursor: pointer;
             user-select: none
         }
