@@ -31,6 +31,10 @@
  .window-head {
      background: #f44336;
  }
+ 
+ .window-head-system {
+	 background: #f44336;
+ }
 	 
 .report {
     color: #c60404;

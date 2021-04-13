@@ -1,38 +1,41 @@
  body {
-     background: url(chrismas.jpg);
+     background: url(birthday.jpg);
      background-size: cover;
      background-position: center;
 
  }
 
  .date {
-     background: #97d1ff;
+     background: #e4f160;
  }
 
  .button {
-     background: #10e4ff;
-     border-radius: 26px;
+     background: #f36d64;
  }
 
  .menu {
-     background: #41c4ff;
+     background: #926bd7;
  }
 
  .window-fold {
-     background: #95f3ff;
+     background: #f76295;
  }
 
  .collapse-btn {
-     background: #07ffe8;
+     background: #4CAF50;
  }
 
  .close-btn {
-     background: #008eff;
+     background: #F44336;
  }
  
+ .window-head {
+    background: #ffd044;
+}
+
  .window-head-system {
-	 background: #00b0ff;
- }
+    background: #ffd044;
+  }
 
  #greenBar {
      width: 10%;
