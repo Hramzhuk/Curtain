@@ -29,3 +29,14 @@ body {
     background: #FF9800;
     overflow: hidden;
 }
+.window-notification {
+    position: absolute;
+    border: 1px solid black;
+    top: 50%;
+    left: 35%;
+    background: #767676;
+    display: none;
+    user-select: none;
+    /* transition: 1s; */
+    border-radius: 10px;
+}

@@ -66,6 +66,7 @@
             <img class="app-icon" title="калькулятор" onclick="calc.showWindow()" src="calculator_icon.png">
             <img class="app-icon" title="блокнот" onclick="notepad.showWindow()" src="notepad_icon.png">
 			<img class="app-icon" title="стрелец" onclick="game.showWindow()" src="target_icon.png">
+       	    <img class="app-icon" title="заметки" onclick="notes.showWindow()" src="notes_icon.png">
         </div>
     </div>
 
@@ -77,7 +78,7 @@
         </div>
 			<div class="main-window">
             <p>Операционная сиcтема: YarOS</p>
-            <p>Версия: 2.3.1</p>
+            <p>Версия: 2.4.1</p>
             <p>Тип: 64(бит)</p>
             <p>Создана: 12 Апреля 2020 г.</p>
         </div>
@@ -144,8 +145,34 @@
 			<p>
         </div>
     </div>
+    <div class="window-standart beta">
+        <div class="window-head">
+            <span class="name-window">Бета</span>
+            <button class="close-btn" onclick="beta.closeWindow()" title="закрыть">X</button>
+            <button class="collapse-btn" onclick="beta.folding()" title="свернуть">&lt;</button>
+        </div>
+			<div class="main-window">
+				<p>Вы попали на сайт YarOS.</p> 
+				<p>Помните что это бето-тестирование<p>
+				<p>и тут много багов.</p>
+        </div>
+    </div>
+	<div class="window-standart notes">
+        <div class="window-head">
+            <span class="name-window">Заметки</span>
+            <button class="close-btn" onclick="notes.closeWindow()" title="закрыть">X</button>
+            <button class="collapse-btn" onclick="notes.folding()" title="свернуть">&lt;</button>
+        </div>
+			<div class="main-window" style="text-align: center;">
+            <form> <input type="text"> <input type="checkbox"><label>Сделано</label><br></form>
+            <form> <input type="text"> <input type="checkbox"><label>Сделано</label><br></form>
+            <form> <input type="text"> <input type="checkbox"><label>Сделано</label><br></form>
+            <form> <input type="text"> <input type="checkbox"><label>Сделано</label><br></form>
+            <form> <input type="text"> <input type="checkbox"><label>Сделано</label><br></form>
+            <form> <input type="text"> <input type="checkbox"><label>Сделано</label><br></form>
+        </div>
+    </div>
     <div class="folding">
-
     </div>
     <script>
 		function randColor() {
@@ -209,8 +236,11 @@
         var calc = new OsWindow('calc');
         var notepad = new OsWindow('notepad');
 		var game = new OsWindow('game');
+		var beta = new OsWindow('beta');
+        var notes = new OsWindow('notes');
 
-        const windows = [app, options, sysInfo, calc, notepad, game]; //Alex
+
+        const windows = [app, options, sysInfo, calc, notepad, game, beta, notes]; //Alex
 
         /* //Alex: Не используется
         function openWindow(elClass) {
