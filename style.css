@@ -12,8 +12,10 @@
         }
 
         .start-download {
-            background: #FF9800;
+            background: url(birthday.jpg);
             overflow: hidden;
+            background-size: cover;
+            background-position: center;
         }
 
         .date {

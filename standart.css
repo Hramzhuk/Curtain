@@ -26,8 +26,10 @@ body {
 }
 
 .start-download {
+/*
     background: #FF9800;
     overflow: hidden;
+*/
 }
 .window-notification {
     position: absolute;
