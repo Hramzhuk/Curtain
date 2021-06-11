@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>YarOS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="calc/style.css">
-    <link id="theme" rel="stylesheet" href="standart.css">
+    <link id="theme" rel="stylesheet" href="/css/standart.css">
     <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
 </head>
 
@@ -20,10 +20,8 @@
     <div class="wrapper hide-os">
 
         <div class="header">
-
             <div class="button" title="открыть меню">Y</div>
-            <div class="menu">
-                <ul class="menu-items">
+                <ul class="menu menu-items">
                     <li onclick="app.showWindow()" title="открыть вкладку приложения">Приложения</li>
                     <li onclick="options.showWindow()" title="открыть вкладку настройки">Настройки</li>
                     <li onclick="sysInfo.showWindow()" title="открыть вкладку система">Система</li>
@@ -31,7 +29,6 @@
                     <li><a class="report" href="https://forms.gle/dWQDAhM8pBCjmru7A">Сообщить о баге </a></li>
 
                 </ul>
-            </div>
         </div>
         <div class="bottom-calendar">
             <div class="date" title="Часы"></div>
@@ -63,10 +60,10 @@
             <button class="collapse-btn" onclick="app.folding()" title="свернуть">&lt;</button>
         </div>
         <div class="main-window">
-            <img class="app-icon" title="калькулятор" onclick="calc.showWindow()" src="calculator_icon.png">
-            <img class="app-icon" title="блокнот" onclick="notepad.showWindow()" src="notepad_icon.png">
-			<img class="app-icon" title="стрелец" onclick="game.showWindow()" src="target_icon.png">
-       	    <img class="app-icon" title="заметки" onclick="notes.showWindow()" src="notes_icon.png">
+            <img class="app-icon" title="калькулятор" onclick="calc.showWindow()" src="../img/calculator_icon.png">
+            <img class="app-icon" title="блокнот" onclick="notepad.showWindow()" src="../img/notepad_icon.png">
+			<img class="app-icon" title="стрелец" onclick="game.showWindow()" src="../img/target_icon.png">
+       	    <img class="app-icon" title="заметки" onclick="notes.showWindow()" src="../img/notes_icon.png">
         </div>
     </div>
 
@@ -78,7 +75,7 @@
         </div>
 			<div class="main-window">
             <p>Операционная сиcтема: YarOS</p>
-            <p>Версия: 2.4.1</p>
+            <p>Версия: 2.4.2</p>
             <p>Тип: 64(бит)</p>
             <p>Создана: 12 Апреля 2020 г.</p>
         </div>
@@ -139,9 +136,9 @@
 			<p>Компьютер загадал мишень.</p>
 			<p>попробуйте угадать какую.</p>
 			<p style="text-align: center">Результат: <span id="result"></span></p>
-			<img class="vanty" onclick="startGame(1)" src="target.png" alt="" height="59px">
-			<img class="vanty" onclick="startGame(2)" src="target.png" alt="" height="59px">
-			<img class="vanty" onclick="startGame(3)" src="target.png" alt="" height="59px">
+			<img class="vanty" onclick="startGame(1)" src="../img/target.png" alt="" height="59px">
+			<img class="vanty" onclick="startGame(2)" src="../img/target.png" alt="" height="59px">
+			<img class="vanty" onclick="startGame(3)" src="../img/target.png" alt="" height="59px">
 			<p>
         </div>
     </div>
@@ -253,7 +250,7 @@
         /* Функция смены темы */
         document.querySelector('#select-theme').onchange = function() {
             var sel = document.querySelector('#select-theme');
-            document.querySelector('#theme').href = sel.value + '.css';
+            document.querySelector('#theme').href = '/css/' + sel.value + '.css';
             sel.style.background = colors[sel.value];
             localStorage.theme = sel.value;
         }
@@ -310,7 +307,7 @@
 
         function download() {
             if (localStorage.theme) {
-                document.querySelector('#theme').href = localStorage.theme + '.css';
+                document.querySelector('#theme').href = '/css/' + localStorage.theme + '.css';
                 document.querySelector('#select-theme').value = localStorage.theme;
             }
             document.querySelector('body').classList.toggle('start-download');
