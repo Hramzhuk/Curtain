@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="calc/style.css">
     <link id="theme" rel="stylesheet" href="css/standart.css">
-    <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="YarOS_Logo_fav.jpg">
 </head>
 
 <body class="start-download">
@@ -250,7 +250,7 @@
         /* Функция смены темы */
         document.querySelector('#select-theme').onchange = function() {
             var sel = document.querySelector('#select-theme');
-            document.querySelector('#theme').href = '/css/' + sel.value + '.css';
+            document.querySelector('#theme').href = 'css/' + sel.value + '.css';
             
             localStorage.theme = sel.value;
         }
