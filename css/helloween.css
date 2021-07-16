@@ -5,19 +5,24 @@
 
  .date {
      background: #e5b116;
+     border: 1px solid #dfad19;
  }
 
  .button {
      background: #FF9800;
      border-radius: 26px;
+     border: 1px solid #dd8402;
  }
 
  .menu {
      background: #e95a15;
+     border-radius: 26px;
+     border: 1px solid #c2511b;
  }
 
  .window-fold {
      background: #ffbf00;
+     border: 1px solid #dfad19;
  }
 
  .collapse-btn {
@@ -39,4 +44,8 @@
 .report {
     color: #c60404;
     text-decoration: none;
+}
+
+.window-standart {
+    border: 2px solid #9f3129;
 }

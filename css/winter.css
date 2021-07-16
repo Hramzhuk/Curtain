@@ -5,17 +5,22 @@
 
         }
         .date {
-            background: #97d1ff; 
+            background: #97d1ff;
+			border: 1px solid #6e9dc2; 
         }
         .button {
             background: #10e4ff;
 			border-radius: 26px;
+			border: 1px solid #11d5d5;
         }
         .menu {
             background: #41c4ff;
+			border: 1px solid #0681b8;
+    		border-radius: 26px;
         }
 		.window-fold {
 			background: #95f3ff;
+			border: 1px solid #77bbc4;
 		}
 		.collapse-btn {
 			background: #07ffe8;

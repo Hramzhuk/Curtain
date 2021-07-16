@@ -7,18 +7,22 @@
 
  .date {
      background: #e4f160;
+     border: 1px solid rgb(201 213 88);
  }
 
  .button {
      background: #f36d64;
+     border: 1px solid #b6524b;
  }
 
  .menu {
      background: #926bd7;
+     border: 1px solid #805fbc;
  }
 
  .window-fold {
      background: #f76295;
+     border: 1px solid #cc557e;
  }
 
  .collapse-btn {
@@ -51,3 +55,7 @@
      background: #FF9800;
      overflow: hidden;
  }
+
+ .window-standart {
+    border: 2px solid #baa706;
+}

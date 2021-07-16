@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>YarOS</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="calc/style.css">
-    <link id="theme" rel="stylesheet" href="css/standart.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/calc/style.css">
+    <link id="theme" rel="stylesheet" href="/css/standart.css">
     <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
 </head>
 
@@ -60,10 +60,10 @@
             <button class="collapse-btn" onclick="app.folding()" title="свернуть">&lt;</button>
         </div>
         <div class="main-window">
-            <img class="app-icon" title="калькулятор" onclick="calc.showWindow()" src="img/calculator_icon.png">
-            <img class="app-icon" title="блокнот" onclick="notepad.showWindow()" src="img/notepad_icon.png">
-			<img class="app-icon" title="стрелец" onclick="game.showWindow()" src="img/target_icon.png">
-       	    <img class="app-icon" title="заметки" onclick="notes.showWindow()" src="img/notes_icon.png">
+            <img class="app-icon" title="калькулятор" onclick="calc.showWindow()" src="../img/calculator_icon.png">
+            <img class="app-icon" title="блокнот" onclick="notepad.showWindow()" src="../img/notepad_icon.png">
+			<img class="app-icon" title="стрелец" onclick="game.showWindow()" src="../img/target_icon.png">
+       	    <img class="app-icon" title="заметки" onclick="notes.showWindow()" src="../img/notes_icon.png">
         </div>
     </div>
 
@@ -91,7 +91,7 @@
 			<div class="main-window">
             <p>
                 Тема:
-                <select name="" id="select-theme" style="background: #cddc39;">
+                <select name="" id="select-theme" style="background: #fefefe; border: 2px solid #c8c6c6; border-radius: 12px;color: #555555;"
                     <option value="standart">Стандартная тема</option>
                     <option value="winter">Зимняя тема</option>
                     <option value="chrismas">Новогодняя тема</option>
@@ -250,7 +250,7 @@
         /* Функция смены темы */
         document.querySelector('#select-theme').onchange = function() {
             var sel = document.querySelector('#select-theme');
-            document.querySelector('#theme').href = 'css/' + sel.value + '.css';
+            document.querySelector('#theme').href = '/css/' + sel.value + '.css';
             sel.style.background = colors[sel.value];
             localStorage.theme = sel.value;
         }
@@ -307,7 +307,7 @@
 
         function download() {
             if (localStorage.theme) {
-                document.querySelector('#theme').href = 'css/' + localStorage.theme + '.css';
+                document.querySelector('#theme').href = '/css/' + localStorage.theme + '.css';
                 document.querySelector('#select-theme').value = localStorage.theme;
             }
             document.querySelector('body').classList.toggle('start-download');

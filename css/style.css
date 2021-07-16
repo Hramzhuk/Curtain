@@ -5,9 +5,9 @@
             src: url('RobotoMono-Bold.ttf');
         }
 
-* {
-    box-sizing: border-box;
-}
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             background: #cddc39;
@@ -34,7 +34,7 @@
             text-align: center;
             height: 23.33px;
             user-select: none;
-            border: 1px solid black
+            border: 1px solid #8f8d8d;
         }
 
         .header {
@@ -46,25 +46,26 @@
         .button {
             height: 85px;
             width: 85px;
-            border: 1px solid black;
+            border: 1px solid #cc9a03;
             font-size: 75px;
             font-family: sans-serif;
             text-align: center;
             cursor: pointer;
             user-select: none;
+            border-radius: 12px
         }
 
         .menu {
 
-    transition: 1s;
-    height: 85px;
-    width: 1px;
+            transition: 1s;
+            height: 85px;
+            width: 1px;
 
-    border: 1px solid black;
-    overflow: hidden;
-    opacity: 0;
-    white-space: nowrap;
-
+            border: 1px solid #066bbc;
+            overflow: hidden;
+            opacity: 0;
+            white-space: nowrap;
+            border-radius: 12px
         }
 
         .menu-open {
@@ -161,7 +162,7 @@
 
         .window-standart {
             position: absolute;
-            border: 2px solid black;
+            border: 2px solid #076bba;
             top: 50%;
             left: 35%;
             background: white;
@@ -218,7 +219,7 @@
             font-size: 15px;
             text-align: center;
             background: white;
-            border: 1px solid black
+            border: 1px solid #b8b6b6;
         }
 
         #calendar2 thead tr:last-child {
