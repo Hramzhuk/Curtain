@@ -10,7 +10,7 @@
         }
 
         body {
-            background: #cddc39;
+            background-color: #cddc39;
             font-family: Roboto;
             transition: 1s;
         }
@@ -52,7 +52,9 @@
             text-align: center;
             cursor: pointer;
             user-select: none;
-            border-radius: 12px
+            border-radius: 12px;
+            background-image: url(../img/YarOS_Logo.png);
+            background-size: contain;
         }
 
         .menu {

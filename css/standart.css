@@ -8,9 +8,7 @@ body {
 }
 
 .button {
-    background: #ffc107;
-    background-image: url(../img/YarOS_Logo.png);
-    background-size: contain;
+    background-color: #ffc107;
 }
 
 .menu {

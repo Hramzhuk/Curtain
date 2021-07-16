@@ -251,7 +251,7 @@
         document.querySelector('#select-theme').onchange = function() {
             var sel = document.querySelector('#select-theme');
             document.querySelector('#theme').href = '/css/' + sel.value + '.css';
-            sel.style.background = colors[sel.value];
+            
             localStorage.theme = sel.value;
         }
 
