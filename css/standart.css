@@ -25,6 +25,11 @@ body {
     text-align: center;
 }
 
+.button-menu-open {
+    background-color: #e2ab04;
+    border: 1px solid #aa8003;
+}
+
 .start-download {
 /*
     background: #FF9800;

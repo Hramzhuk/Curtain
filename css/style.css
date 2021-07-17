@@ -58,11 +58,6 @@
             margin-top: 8px;
         }
 
-        .button-menu-open {
-            background-color: #e2ab04 !important;
-            border: 1px solid #aa8003 !important;
-        }
-
         .menu {
             transition: 1s;
             height: 85px;
