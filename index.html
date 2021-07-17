@@ -216,6 +216,11 @@
                 this.element.style.left = '-1000px';
                 var newEl = document.createElement('div');
                 newEl.className = 'window-fold';
+                let title = this.element.children[0].children[0].innerHTM;
+                newEl.title = this.element.children[0].children[0].innerHTML.toUpperCase();
+                console.log(this.element)
+                console.log(this.element.children[0])
+                console.log(typeof (this.element.children[0].children[0].innerHTML))
                 newEl.innerHTML = this.element.children[0].children[0].innerHTML[0].toUpperCase();
                 var cls = this.selector; //Alex
                 newEl.onclick = function () {
