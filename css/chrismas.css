@@ -16,6 +16,11 @@
      border: 1px solid #11d5d5;
  }
 
+ .button-menu-open {
+    background-color: #12bfd6 !important;
+    border: 1px solid #15c5c5 !important;
+ }
+
  .menu {
      background: #41c4ff;
      border: 1px solid #0681b8;
