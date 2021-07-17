@@ -21,34 +21,34 @@
 
         <div class="header">
             <div class="button" title="открыть меню"> </div>
-                <ul class="menu menu-items">
-                    <li onclick="app.showWindow()" title="открыть вкладку приложения">Приложения</li>
-                    <li onclick="options.showWindow()" title="открыть вкладку настройки">Настройки</li>
-                    <li onclick="sysInfo.showWindow()" title="открыть вкладку система">Система</li>
-                    <li><a class="donation" href="https://yoomoney.ru/to/4100116303857614">Пожертвовать</a></li>
-                    <li><a class="report" href="https://forms.gle/dWQDAhM8pBCjmru7A">Сообщить о баге </a></li>
-
-                </ul>
+            <ul class="menu menu-items">
+                <li onclick="app.showWindow()" title="открыть вкладку приложения">Приложения</li>
+                <li onclick="options.showWindow()" title="открыть вкладку настройки">Настройки</li>
+                <li onclick="sysInfo.showWindow()" title="открыть вкладку система">Система</li>
+                <li><a class="donation" href="https://yoomoney.ru/to/4100116303857614">Пожертвовать</a></li>
+                <li><a class="report" href="https://forms.gle/dWQDAhM8pBCjmru7A">Сообщить о баге </a></li>
+            </ul>
         </div>
         <div class="bottom-calendar">
             <div class="date" title="Часы"></div>
             <table id="calendar2">
                 <thead>
                     <tr>
-                        <td>‹
-                        <td colspan="5">
-                        <td>›
+                        <td>‹</td>
+                        <td colspan="5"></td>
+                        <td>›</td>
                     </tr>
                     <tr>
-                        <td>Пн
-                        <td>Вт
-                        <td>Ср
-                        <td>Чт
-                        <td>Пт
-                        <td>Сб
-                        <td>Вс
+                        <td>Пн</td>
+                        <td>Вт</td>
+                        <td>Ср</td>
+                        <td>Чт</td>
+                        <td>Пт</td>
+                        <td>Сб</td>
+                        <td>Вс</td>
                     </tr>
-                <tbody>
+                </thead>
+                <tbody></tbody>
             </table>
         </div>
     </div>
@@ -62,8 +62,8 @@
         <div class="main-window">
             <img class="app-icon" title="калькулятор" onclick="calc.showWindow()" src="img/calculator_icon.png">
             <img class="app-icon" title="блокнот" onclick="notepad.showWindow()" src="img/notepad_icon.png">
-			<img class="app-icon" title="стрелец" onclick="game.showWindow()" src="img/target_icon.png">
-       	    <img class="app-icon" title="заметки" onclick="notes.showWindow()" src="img/notes_icon.png">
+            <img class="app-icon" title="стрелец" onclick="game.showWindow()" src="img/target_icon.png">
+            <img class="app-icon" title="заметки" onclick="notes.showWindow()" src="img/notes_icon.png">
         </div>
     </div>
 
@@ -73,7 +73,7 @@
             <button class="close-btn" onclick="sysInfo.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="sysInfo.folding()" title="свернуть">&lt;</button>
         </div>
-			<div class="main-window">
+        <div class="main-window">
             <p>Операционная сиcтема: YarOS</p>
             <p>Версия: 2.4.2</p>
             <p>Тип: 64(бит)</p>
@@ -88,15 +88,16 @@
             <button class="collapse-btn" onclick="options.folding()" title="свернуть">&lt;</button>
 
         </div>
-			<div class="main-window">
+        <div class="main-window">
             <p>
                 Тема:
-                <select name="" id="select-theme" style="background: #fefefe; border: 1px solid #c8c6c6; border-radius: 12px;color: #555555;">
+                <select name="" id="select-theme"
+                    style="background: #fefefe; border: 1px solid #c8c6c6; border-radius: 12px;color: #555555;">
                     <option value="standart">Стандартная тема</option>
                     <option value="winter">Зимняя тема</option>
                     <option value="chrismas">Новогодняя тема</option>
                     <option value="helloween">Хеллуинская тема</option>
-					<option value="birthday">Тема день рождения YarOS</option>
+                    <option value="birthday">Тема день рождения YarOS</option>
                 </select>
             </p>
         </div>
@@ -107,12 +108,12 @@
             <button class="close-btn" onclick="calc.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="calc.folding()" title="свернуть">&lt;</button>
         </div>
-			<div class="main-window">
-			<div class="container">
-            <div class="view">0</div>
-        </div>
+        <div class="main-window">
+            <div class="container">
+                <div class="view">0</div>
+            </div>
 
-        <script src="calc/calc.js"></script>
+            <script src="calc/calc.js"></script>
 
         </div>
     </div>
@@ -123,23 +124,24 @@
             <button class="collapse-btn" onclick="notepad.folding()" title="свернуть">&lt;</button>
         </div>
         <div>
-            <textarea name="" id="notepad-text" style="border: 0px solid black;" onchange="saveNotepad()" cols="47" rows="14"></textarea>
+            <textarea name="" id="notepad-text" style="border: 0px solid black;" onchange="saveNotepad()" cols="47"
+                rows="14"></textarea>
         </div>
     </div>
-	<div class="window-standart game">
+    <div class="window-standart game">
         <div class="window-head">
             <span class="name-window">Стрелец</span>
             <button class="close-btn" onclick="game.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="game.folding()" title="свернуть">&lt;</button>
         </div>
-			<div class="main-window" style="text-align: center;">
-			<p>Компьютер загадал мишень.</p>
-			<p>попробуйте угадать какую.</p>
-			<p style="text-align: center">Результат: <span id="result"></span></p>
-			<img class="vanty" onclick="startGame(1)" src="img/target.png" alt="" height="59px">
-			<img class="vanty" onclick="startGame(2)" src="img/target.png" alt="" height="59px">
-			<img class="vanty" onclick="startGame(3)" src="img/target.png" alt="" height="59px">
-			<p>
+        <div class="main-window" style="text-align: center;">
+            <p>Компьютер загадал мишень.</p>
+            <p>попробуйте угадать какую.</p>
+            <p style="text-align: center">Результат: <span id="result"></span></p>
+            <img class="vanty" onclick="startGame(1)" src="img/target.png" alt="" height="59px">
+            <img class="vanty" onclick="startGame(2)" src="img/target.png" alt="" height="59px">
+            <img class="vanty" onclick="startGame(3)" src="img/target.png" alt="" height="59px">
+            <p>
         </div>
     </div>
     <div class="window-standart beta">
@@ -148,19 +150,20 @@
             <button class="close-btn" onclick="beta.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="beta.folding()" title="свернуть">&lt;</button>
         </div>
-			<div class="main-window">
-				<p>Вы попали на сайт YarOS.</p> 
-				<p>Помните что это бето-тестирование<p>
-				<p>и тут много багов.</p>
+        <div class="main-window">
+            <p>Вы попали на сайт YarOS.</p>
+            <p>Помните что это бето-тестирование
+            <p>
+            <p>и тут много багов.</p>
         </div>
     </div>
-	<div class="window-standart notes">
+    <div class="window-standart notes">
         <div class="window-head">
             <span class="name-window">Заметки</span>
             <button class="close-btn" onclick="notes.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="notes.folding()" title="свернуть">&lt;</button>
         </div>
-			<div class="main-window" style="text-align: center;">
+        <div class="main-window" style="text-align: center;">
             <form> <input type="text"> <input type="checkbox"><label>Сделано</label><br></form>
             <form> <input type="text"> <input type="checkbox"><label>Сделано</label><br></form>
             <form> <input type="text"> <input type="checkbox"><label>Сделано</label><br></form>
@@ -172,26 +175,26 @@
     <div class="folding">
     </div>
     <script>
-		function randColor() {
-		var r = Math.floor(Math.random() * (256)),
-			g = Math.floor(Math.random() * (256)),
-			b = Math.floor(Math.random() * (256));
-    return '#' + r.toString(16) + g.toString(16) + b.toString(16);
-}
-	function startGame(number) {
-		min = 1;
-		max = 4;
-		digit = Math.floor(Math.random() * (max - min)) + min;
-		console.log(digit);
-		result = document.getElementById('result')
-		if(number == digit) {
-			result.innerHTML = 'Вы угадали';
-		} else {
-			result.innerHTML = "Вы не угадали";
-		}
-		result.style.background = randColor();
-	  
-	}
+        function randColor() {
+            var r = Math.floor(Math.random() * (256)),
+                g = Math.floor(Math.random() * (256)),
+                b = Math.floor(Math.random() * (256));
+            return '#' + r.toString(16) + g.toString(16) + b.toString(16);
+        }
+        function startGame(number) {
+            min = 1;
+            max = 4;
+            digit = Math.floor(Math.random() * (max - min)) + min;
+            console.log(digit);
+            result = document.getElementById('result')
+            if (number == digit) {
+                result.innerHTML = 'Вы угадали';
+            } else {
+                result.innerHTML = "Вы не угадали";
+            }
+            result.style.background = randColor();
+
+        }
         class OsWindow {
 
             constructor(className) {
@@ -215,7 +218,7 @@
                 newEl.className = 'window-fold';
                 newEl.innerHTML = this.element.children[0].children[0].innerHTML[0].toUpperCase();
                 var cls = this.selector; //Alex
-                newEl.onclick = function() {
+                newEl.onclick = function () {
                     OsWindow.prototype.priore++;
                     document.querySelector(cls).style.left = "35%";
                     document.querySelector(cls).style.zIndex = OsWindow.prototype.priore;
@@ -232,8 +235,8 @@
         var sysInfo = new OsWindow('system');
         var calc = new OsWindow('calc');
         var notepad = new OsWindow('notepad');
-		var game = new OsWindow('game');
-		var beta = new OsWindow('beta');
+        var game = new OsWindow('game');
+        var beta = new OsWindow('beta');
         var notes = new OsWindow('notes');
 
 
@@ -248,10 +251,10 @@
         */
 
         /* Функция смены темы */
-        document.querySelector('#select-theme').onchange = function() {
+        document.querySelector('#select-theme').onchange = function () {
             var sel = document.querySelector('#select-theme');
             document.querySelector('#theme').href = 'css/' + sel.value + '.css';
-            
+
             localStorage.theme = sel.value;
         }
 
@@ -270,17 +273,17 @@
         //            document.querySelector('.folding').append(newEl);
         //        }
 
-        document.querySelector('.button').onclick = function() {
+        document.querySelector('.button').onclick = function () {
             document.querySelector('.menu').classList.toggle('menu-open')
             document.querySelector('.button').classList.toggle('button-menu-open')
 
         }
-        window.onload = setInterval(function() {
+        window.onload = setInterval(function () {
             a = new Date();
             document.querySelector('.date').innerHTML = a.toLocaleTimeString();
 
             //Alex
-            windows.forEach(function(w) {
+            windows.forEach(function (w) {
                 makeDraggable(w.selector);
             });
 
@@ -358,7 +361,7 @@
         //Alex
         function makeDraggable(sel) {
             var wnd = document.querySelector(sel);
-            wnd.ondblclick = function(e) {
+            wnd.ondblclick = function (e) {
                 // подготовить к перемещению
                 // 2. разместить на том же месте, но в абсолютных координатах
                 moveAt(e);
@@ -380,12 +383,12 @@
                 }
 
                 // 3, перемещать по экрану
-                document.onmousemove = function(e) {
+                document.onmousemove = function (e) {
                     moveAt(e);
                 }
 
                 // 4. отследить окончание переноса
-                wnd.onmouseup = function() {
+                wnd.onmouseup = function () {
                     document.onmousemove = null;
                     wnd.onmouseup = null;
                 }
@@ -434,11 +437,11 @@
         }
         Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth());
         // переключатель минус месяц
-        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
+        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function () {
             Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) - 1);
         }
         // переключатель плюс месяц
-        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
+        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function () {
             Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) + 1);
         }
 

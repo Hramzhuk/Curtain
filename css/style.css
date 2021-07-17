@@ -1,7 +1,5 @@
         @font-face {
-
             font-family: 'Roboto';
-
             src: url('RobotoMono-Bold.ttf');
         }
 
@@ -58,7 +56,6 @@
             margin-left: 8px;
             background-repeat: no-repeat;
             margin-top: 8px;
-
         }
 
         .button-menu-open {
@@ -67,11 +64,9 @@
         }
 
         .menu {
-
             transition: 1s;
             height: 85px;
             width: 1px;
-
             border: 1px solid #066bbc;
             overflow: hidden;
             opacity: 0;
@@ -90,11 +85,9 @@
         }
 
         .menu-items li {
-
             display: inline-block;
             font-size: 24px;
             padding: 20px 20px 0px 0px;
-
         }
 
         #greyProgress {
@@ -182,11 +175,11 @@
             background: white;
             display: none;
             user-select: none;
-            /*            transition: 1s;*/
+            transition: 0.5s left ease-in-out;
         }
 
         .main-window {
-            padding: 0;
+            padding: 5px 10px;
         }
 
         .system-info {
@@ -246,8 +239,7 @@
             color: rgb(50, 50, 50);
         }
 
-        #calendar2 thead tr:nth-child(1) td:nth-child(1):hover,
-        #calendar2 thead tr:nth-child(1) td:nth-child(3):hover {
+        #calendar2 thead tr:nth-child(1) td:nth-child(1):hover, #calendar2 thead tr:nth-child(1) td:nth-child(3):hover {
             cursor: pointer;
         }
 
@@ -256,8 +248,7 @@
             width: 12px;
         }
 
-        #calendar2 tbody td:nth-child(n+6),
-        #calendar2 .holiday {
+        #calendar2 tbody td:nth-child(n+6), #calendar2 .holiday {
             color: rgb(231, 140, 92);
         }
 
