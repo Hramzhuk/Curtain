@@ -12,7 +12,7 @@
 
 <body class="start-download">
     <div class="download-screen">
-        <div class="welcome">Добро пожаловать в YarOS</div>
+        <div class="welcome">YarOS загружается подождите.</div>
         <div id="greyProgress">
             <div id="greenBar">10%</div>
         </div>
@@ -123,7 +123,7 @@
             <button class="collapse-btn" onclick="notepad.folding()" title="свернуть">&lt;</button>
         </div>
         <div>
-            <textarea name="" id="notepad-text" onchange="saveNotepad()" cols="47" rows="14"></textarea>
+            <textarea name="" id="notepad-text" style="border: 0px solid black;" onchange="saveNotepad()" cols="47" rows="14"></textarea>
         </div>
     </div>
 	<div class="window-standart game">
@@ -272,6 +272,7 @@
 
         document.querySelector('.button').onclick = function() {
             document.querySelector('.menu').classList.toggle('menu-open')
+            document.querySelector('.button').classList.toggle('button-menu-open')
 
         }
         window.onload = setInterval(function() {
