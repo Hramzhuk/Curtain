@@ -170,7 +170,6 @@
             background: white;
             display: none;
             user-select: none;
-            transition: 0.5s left ease-in-out;
         }
 
         .main-window {
@@ -282,4 +281,15 @@
             padding: 6px;
             cursor: pointer;
             user-select: none
+        }
+
+        .window-button {
+            width: 176px;
+            height: 39px;
+            background: #4af436;
+            color: white;
+            border: 2px solid black;
+            margin: 5px;
+            border-radius: 12px;
+            font-size: 24px;
         }
