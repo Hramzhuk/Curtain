@@ -147,7 +147,6 @@
     <div class="window-standart beta">
         <div class="window-head">
             <span class="name-window">Бета</span>
-            <button class="close-btn" onclick="beta.closeWindow()" title="закрыть">X</button>
         </div>
         <div class="main-window">
             <p>Дорогой пользователь:</p>
@@ -321,6 +320,7 @@
             document.querySelector('.wrapper').classList.toggle('hide-os');
         }
         setTimeout(download, 3700);
+        beta.showWindow()
 
 
         /*
