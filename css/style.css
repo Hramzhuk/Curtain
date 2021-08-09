@@ -56,9 +56,11 @@
             margin-left: 8px;
             background-repeat: no-repeat;
             margin-top: 8px;
+            z-index: 1;
         }
 
         .menu {
+            margin-left: -135px;
             transition: 1s;
             height: 85px;
             width: 1px;
@@ -73,6 +75,7 @@
         }
 
         .menu-open {
+            margin-left: 0;
             transition: 1s;
             width: 92%;
             text-align: center;
@@ -277,7 +280,7 @@
         }
 
         .app-icon {
-            height: 63px;
+            height: 79px;
             padding: 6px;
             cursor: pointer;
             user-select: none
