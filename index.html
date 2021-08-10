@@ -106,7 +106,7 @@
     </div>
     <div class="window-standart calc">
         <div class="window-head">
-            <img class="window-icon" src="">
+            <img class="window-icon" src="img/Calculator_icon.png">
             <span class="name-window">Калькулятор</span>
             <button class="close-btn" onclick="calc.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="calc.folding()" title="свернуть">&lt;</button>
@@ -122,7 +122,7 @@
     </div>
     <div class="window-standart notepad">
         <div class="window-head">
-            <img class="window-icon" src="">
+            <img class="window-icon" src="img/Notepad_icon.png">
             <span class="name-window">Блокнот</span>
             <button class="close-btn" onclick="notepad.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="notepad.folding()" title="свернуть">&lt;</button>
@@ -134,7 +134,7 @@
     </div>
     <div class="window-standart game">
         <div class="window-head">
-            <img class="window-icon" src="">
+            <img class="window-icon" src="img/Game_icon.png">
             <span class="name-window">Стрелец</span>
             <button class="close-btn" onclick="game.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="game.folding()" title="свернуть">&lt;</button>
@@ -164,7 +164,7 @@
     </div>
     <div class="window-standart notes">
         <div class="window-head">
-            <img class="window-icon" src="">
+            <img class="window-icon" src="img/Notes_icon.png">
             <span class="name-window">Заметки</span>
             <button class="close-btn" onclick="notes.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="notes.folding()" title="свернуть">&lt;</button>
@@ -222,8 +222,10 @@
                 this.element.style.left = '-1000px';
                 var newEl = document.createElement('div');
                 newEl.className = 'window-fold';
-                newEl.title = this.element.children[0].children[0].innerHTML.toUpperCase();
-                newEl.innerHTML = this.element.children[0].children[0].innerHTML[0].toUpperCase();
+                // newEl.title = this.element.children[0].children[0].innerHTML.toUpperCase();
+                console.log(this.element);
+                console.log(this.element.children[0].children[0]);
+                newEl.innerHTML = this.element.children[0].children[1].innerHTML[0].toUpperCase();
                 var cls = this.selector; //Alex
                 newEl.onclick = function () {
                     OsWindow.prototype.priore++;
