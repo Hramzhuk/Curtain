@@ -55,7 +55,7 @@
 
     <div class="window-standart app">
         <div class="window-head">
-            <img class="window-icon" src="">
+            <img class="window-icon" src="img/Apps_icon.png">
             <span class="name-window">Приложения</span>
             <button class="close-btn" onclick="app.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="app.folding()" title="свернуть">&lt;</button>
@@ -69,7 +69,8 @@
     </div>
 
     <div class="window-standart system">
-        <div class="window-head-system">
+        <div class="window-head">
+            <img class="window-icon" src="img/System_icon.png">
             <span class="name-window">Информация о системе</span>
             <button class="close-btn" onclick="sysInfo.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="sysInfo.folding()" title="свернуть">&lt;</button>
@@ -84,7 +85,7 @@
 
     <div class="window-standart options">
         <div class="window-head">
-            <img class="window-icon" src="">
+            <img class="window-icon" src="img/Settings_icon.png">
             <span class="name-window">Настройки системы</span>
             <button class="close-btn" onclick="options.closeWindow()" title="закрыть">X</button>
             <button class="collapse-btn" onclick="options.folding()" title="свернуть">&lt;</button>
@@ -100,6 +101,7 @@
                     <option value="chrismas">Новогодняя тема</option>
                     <option value="helloween">Хеллуинская тема</option>
                     <option value="birthday">Тема день рождения YarOS</option>
+                    <option value="old">Старая тема</option>
                 </select>
             </p>
         </div>
@@ -222,7 +224,7 @@
                 this.element.style.left = '-1000px';
                 var newEl = document.createElement('div');
                 newEl.className = 'window-fold';
-                // newEl.title = this.element.children[0].children[0].innerHTML.toUpperCase();
+                newEl.title = this.element.children[0].children[1].innerHTML.toUpperCase();
                 console.log(this.element);
                 console.log(this.element.children[0].children[0]);
                 newEl.innerHTML = this.element.children[0].children[1].innerHTML[0].toUpperCase();

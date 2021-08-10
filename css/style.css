@@ -156,7 +156,7 @@
             /* border: 2px solid black; */
             background: #00b0ff;
             height: 37px;
-            width: 369px;
+            min-width: 369px;
         }
 
         .window-icon {
@@ -167,7 +167,7 @@
         .name-window {
             font-size: 25px;
             text-transform: uppercase;
-            padding: 15px;
+            padding: 4px;
         }
 
         .window-standart {
@@ -281,7 +281,7 @@
             /* border: 2px solid black; */
             background: #00b0ff;
             height: 37px;
-            width: 411px;
+            width: 429px;
         }
 
         .app-icon {
