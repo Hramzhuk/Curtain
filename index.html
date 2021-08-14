@@ -11,6 +11,7 @@
 </head>
 
 <body class="start-download">
+    <div class="mask"></div>
     <div class="download-screen">
         <div class="welcome">YarOS загружается подождите.</div>
         <div id="greyProgress">
@@ -151,17 +152,14 @@
             <p>
         </div>
     </div>
-    <div class="window-standart beta">
-        <div class="window-head">
-            <span class="name-window">Бета</span>
-        </div>
+    <div class="window-notification beta">
         <div class="main-window">
             <p>Дорогой пользователь:</p>
             <p>Добро пожаловать на сайт YarOS.</p>
-            <p>Помните что это бето-тестирование
+            <p>Помните что это бета-тестирование
             <p>и тут много багов.</p>
             <p>Ярослав</p>
-            <button class="window-button" onclick="beta.closeWindow()" title="продолжить">Продолжить</button>
+            <button class="window-button" onclick="startOS()" title="продолжить">Продолжить</button>
         </div>
     </div>
     <div class="window-standart notes">
@@ -247,11 +245,11 @@
         var calc = new OsWindow('calc');
         var notepad = new OsWindow('notepad');
         var game = new OsWindow('game');
-        var beta = new OsWindow('beta');
+        // var beta = new OsWindow('beta');
         var notes = new OsWindow('notes');
 
 
-        const windows = [app, options, sysInfo, calc, notepad, game, beta, notes]; //Alex
+        const windows = [app, options, sysInfo, calc, notepad, game, notes]; //Alex
 
         /* //Alex: Не используется
         function openWindow(elClass) {
@@ -303,7 +301,7 @@
         function move() {
             var elem = document.getElementById("greenBar");
             var width = 10;
-            var id = setInterval(frame, 40);
+            var id = setInterval(frame, 30);
 
             function frame() {
                 if (width >= 100) {
@@ -312,13 +310,12 @@
                     width++;
                     elem.style.width = width + '%';
                     elem.innerHTML = width * 1 + '%';
-
-                }
-
+                } 
             }
+ 
 
         }
-        move()
+        
 
         function download() {
             if (localStorage.theme) {
@@ -329,8 +326,13 @@
             document.querySelector('.download-screen').style.display = "none";
             document.querySelector('.wrapper').classList.toggle('hide-os');
         }
-        setTimeout(download, 3700);
-        beta.showWindow()
+
+        function startOS() {
+            document.querySelector('.mask').classList.toggle('mask');
+            document.querySelector('.window-notification').style.display = 'none';
+            move();
+            setTimeout(download, 3000);
+        }
 
 
         /*
@@ -458,6 +460,7 @@
         }
 
     </script>
+    
 </body>
 
 </html>
