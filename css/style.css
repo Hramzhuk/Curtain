@@ -302,32 +302,30 @@
 
         .window-button {
             width: 176px;
-    height: 39px;
-    background: #383737;
-    color: white;
-    border: 2px solid #2c2c2c;
-    margin: 5px;
-    border-radius: 10px;
-    font-size: 20px;
-    cursor: pointer;
+            height: 39px;
+            background: #383737;
+            color: white;
+            border: 2px solid #2c2c2c;
+            margin: 5px;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
         }
 
         .window-notification {
             text-align: center;
-    position: absolute;
-    border: 2px solid #2c2b2b;
-    top: 20%;
-    left: 35%;
-    background: #515151;
-    user-select: none;
-    border-radius: 10px;
-    z-index: 3;
+            position: absolute;
+            border: 2px solid #2c2b2b;
+            top: 20%;
+            left: 35%;
+            background: #515151;
+            user-select: none;
+            border-radius: 10px;
+            z-index: 3;
+            color:white;
         }
 
-        .window-head {
-            /* border: 2px solid black; */
-            background: #a1a1a1;
-            height: 37px;
-            min-width: 369px;
-            border-radius: 6px 6px 0px 0px;
+        .YarOS {
+            color: #ffc107;
+            text-decoration: none;
         }
