@@ -31,6 +31,7 @@ body {
 .updates {
     background: #e9e9e9;
     padding: 4px;
+    display: flex;
 }
 
 .update-block-text {
@@ -44,6 +45,7 @@ body {
     width: 154px;
     border-radius: 7px;
     text-align: center;
+    margin: 4px;
 }
 
 .link {
@@ -121,10 +123,11 @@ body {
 }
 
 .menu-item {
-    padding: 12px;
+    margin-right: 17px;
 }
 
 .main-menu {
     display: flex;
     list-style: none;
+    padding: 0;
 }

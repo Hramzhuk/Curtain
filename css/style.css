@@ -19,7 +19,7 @@
 
         .mask {
             position: absolute;
-            background-color: #2d2e2e;
+            background-color: #000000;
             opacity: 0.9;
             width: 100%;
             height: 110%;
@@ -33,7 +33,8 @@
             background-position: center;
         }
 
-        .date {
+        .date,
+        .date2 {
             /*
             border: 1px solid black;
             width: 1263px;
@@ -47,6 +48,7 @@
         .header {
             display: flex;
             justify-content: flex-start;
+            width: 100%;
             align-items: center;
         }
 
@@ -93,14 +95,20 @@
 
         .menu-items li {
             display: inline-block;
-            font-size: 24px;
+            font-size: 22px;
             padding: 20px 20px 0px 0px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .menu-items li:not(:last-child) {
+            border-right: 1px solid #1c87dc;
         }
 
         #greyProgress {
             width: 80%;
             background-color: #206f23;
-            border: 2px solid #fff;
+            border: 2px solid #144916;
             position: absolute;
             top: 200px;
             /* margin: auto; */
@@ -114,7 +122,6 @@
             text-align: center;
             line-height: 30px;
             color: white;
-            text-align: center;
         }
 
         .welcome {
@@ -126,11 +133,6 @@
 
         .hide-os {
             visibility: collapse;
-        }
-
-        .menu-items li {
-            cursor: pointer;
-            user-select: none;
         }
 
         .unvisible-window {
@@ -165,7 +167,8 @@
             /* border: 2px solid black; */
             background: #00b0ff;
             height: 37px;
-            min-width: 369px;
+            min-width: 190px;
+            overflow: hidden;
         }
 
         .window-icon {
@@ -235,7 +238,8 @@
 
         /* Calendar */
 
-        #calendar2 {
+        #calendar2,
+        #calendarWindow {
             width: 190px;
             font: monospace;
             line-height: 1.2em;
@@ -245,29 +249,35 @@
             border: 1px solid #b8b6b6;
         }
 
-        #calendar2 thead tr:last-child {
+        #calendar2 thead tr:last-child,
+        #calendarWindow thead tr:last-child {
             font-size: small;
             color: rgb(85, 85, 85);
         }
 
-        #calendar2 thead tr:nth-child(1) td:nth-child(2) {
+        #calendar2 thead tr:nth-child(1) td:nth-child(2),
+        #calendarWindow thead tr:nth-child(1) td:nth-child(2) {
             color: rgb(50, 50, 50);
         }
 
-        #calendar2 thead tr:nth-child(1) td:nth-child(1):hover, #calendar2 thead tr:nth-child(1) td:nth-child(3):hover {
+        #calendar2 thead tr:nth-child(1) td:nth-child(1):hover, #calendar2 thead tr:nth-child(1) td:nth-child(3):hover,
+        #calendarWindow thead tr:nth-child(1) td:nth-child(1):hover, #calendarWindow thead tr:nth-child(1) td:nth-child(3):hover {
             cursor: pointer;
         }
 
-        #calendar2 tbody td {
+        #calendar2 tbody td,
+        #calendarWindow tbody td {
             color: rgb(44, 86, 122);
             width: 12px;
         }
 
-        #calendar2 tbody td:nth-child(n+6), #calendar2 .holiday {
+        #calendar2 tbody td:nth-child(n+6), #calendar2 .holiday,
+        #calendarWindow tbody td:nth-child(n+6), #calendar2 .holiday {
             color: rgb(231, 140, 92);
         }
 
-        #calendar2 tbody td.today {
+        #calendar2 tbody td.today,
+        #calendarWindow tbody td.today {
             background: rgb(220, 0, 0);
             color: #fff;
         }
@@ -310,6 +320,7 @@
             border-radius: 10px;
             font-size: 20px;
             cursor: pointer;
+            font-family: 'Roboto';
         }
 
         .window-notification {
@@ -328,4 +339,134 @@
         .YarOS {
             color: #ffc107;
             text-decoration: none;
+        }
+
+        .settings {
+            list-style: none;
+        }
+
+        .settings-button {
+            width: 176px;
+            /* height: 39px; */
+            background: #00ff0a;
+            color: white;
+            border: 2px solid #01d709;
+            margin: 5px;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            font-family: 'Roboto';
+            width: 197px;
+        }
+
+        .theme-chooser {
+            background: #fefefe;
+            border: 1px solid #c8c6c6;
+            border-radius: 5px;
+            color: #555555;
+            font-family: 'Roboto';
+        }
+
+        @media (max-width: 400px) {
+            .button {
+                display: none;
+            }
+
+            .menu {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                opacity: 100;
+                height: 100%;
+                flex-direction: column;
+            }
+
+            .menu-items li {
+                font-size: 13px;
+            }
+
+            .window-standart {
+                width: 100%;
+                top: 42%;
+                left: 0%;
+            }
+
+
+            .date {
+                display: none;
+            }
+
+            .window-notification {
+                top: 40%;
+                left: 9%;
+            }
+
+            #greyProgress {
+                width: 97%;
+                left: 5px;
+                top: 151px;
+            }
+
+            .welcome {
+                font-size: 13px;
+            }
+
+            .name-window {
+                font-size: 13px;
+            }
+
+            .window-head {
+                height: 23px;
+            }
+
+            .window-icon {
+                height: 23px;
+            }
+
+            .collapse-btn {
+                display: none;
+            }
+
+            .close-btn {
+                width: 24px;
+                height: 23px;
+                font-size: 13px;
+            }
+
+            .app-icon {
+                height: 69px;
+            }
+
+            p {
+                font-size: 13px;
+            }
+
+            .theme-chooser {
+                height: 35px;
+                width: 156px;
+                font-size: 13px;
+            }
+
+            .settings-button {
+                font-size: 13px;
+                width: 180px;
+                height: 40px;
+            }
+
+            .window-fold {
+                width: 210px;
+                height: 210px;
+                font-size: 140px;
+            }
+
+            .window-button {
+                width: 101px;
+                height: 42px;
+                font-size: 13px;
+            }
+
+            #greenBar {
+                font-size: 13px;
+            }
+
         }

@@ -19,6 +19,10 @@
             border: 1px solid #14afaf ;
         }
 
+		.menu-items li:not(:last-child) {
+			border-right: 1px solid #45b0e0de;
+        }
+
         .menu {
             background: #41c4ff;
 			border: 1px solid #0681b8;

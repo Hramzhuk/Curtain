@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="calc/style.css">
     <link id="theme" rel="stylesheet" href="css/standart.css">
     <link rel="shortcut icon" type="image/x-icon" href="YarOS_Logo_fav.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="start-download">
@@ -21,13 +22,14 @@
     <div class="wrapper hide-os">
 
         <div class="header">
-            <div class="button" title="открыть меню"> </div>
+            <div class="button" title="Открыть меню"> </div>
             <ul class="menu menu-items">
                 <li onclick="app.showWindow()" title="открыть вкладку приложения">Приложения</li>
                 <li onclick="options.showWindow()" title="открыть вкладку настройки">Настройки</li>
                 <li onclick="sysInfo.showWindow()" title="открыть вкладку система">Система</li>
+                <li onclick="calendar.showWindow()" title="открыть вкладку календарь">Календарь</li>
                 <li><a class="donation" href="https://yoomoney.ru/to/4100116303857614">Пожертвовать</a></li>
-                <li><a class="report" href="https://forms.gle/dWQDAhM8pBCjmru7A">Сообщить о баге</a></li>
+                <li><a class="YarOS" href="https://forms.gle/dWQDAhM8pBCjmru7A">Форма поддержки YarOS</a></li>
                 <li><a class="YarOS" href="YarOS_Site_Index.html">Сайт YarOS</a></li>
             </ul>
         </div>
@@ -94,10 +96,8 @@
 
         </div>
         <div class="main-window">
-            <p>
-                Тема:
-                <select name="" id="select-theme"
-                    style="background: #fefefe; border: 1px solid #c8c6c6; border-radius: 12px;color: #555555;">
+                <p>Настройки темы:</p>
+                <select name="" id="select-theme" class="theme-chooser">
                     <option value="standart">Стандартная тема</option>
                     <option value="winter">Зимняя тема</option>
                     <option value="chrismas">Новогодняя тема</option>
@@ -105,7 +105,21 @@
                     <option value="birthday">Тема день рождения YarOS</option>
                     <option value="old">Старая тема</option>
                 </select>
-            </p>
+                <p>Настройки окна:</p>
+                <p>
+                    <input type="checkbox" id="shadowSettingTextBox">
+                    <label for="shadowSettingTextBox">Тени у окон</label>
+                </p>   
+                <p>
+                    <input type="checkbox" id="roundSettingTextBox">
+                    <label for="roundSettingTextBox">Загругление окон</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="smallIconsSettingTextBox" checked>
+                    <label for="smallIconsSettingTextBox">Маленкие иконки окон</label>
+                </p>                              
+                    
+                    <button class="settings-button" onclick="settingsSaved()" title="Сохранить настройки">Сохранить настройки</button>
         </div>
     </div>
     <div class="window-standart calc">
@@ -179,9 +193,101 @@
             <form> <input type="text"> <input type="checkbox"><label>Сделано</label><br></form>
         </div>
     </div>
+    <div class="window-standart calendar">
+        <div class="window-head">
+            <img class="window-icon" src="img/Notes_icon.png">
+            <span class="name-window">Календарь</span>
+            <button class="close-btn" onclick="calendar.closeWindow()" title="закрыть">X</button>
+            <button class="collapse-btn" onclick="calendar.folding()" title="свернуть">&lt;</button>
+        </div>
+        <div class="main-window">
+            <div>
+                <div class="date2" title="Часы"></div>
+                <table id="calendarWindow">
+                    <thead>
+                        <tr>
+                            <td>‹</td>
+                            <td colspan="5"></td>
+                            <td>›</td>
+                        </tr>
+                        <tr>
+                            <td>Пн</td>
+                            <td>Вт</td>
+                            <td>Ср</td>
+                            <td>Чт</td>
+                            <td>Пт</td>
+                            <td>Сб</td>
+                            <td>Вс</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     <div class="folding">
     </div>
     <script>
+        let OsWindowElement = document.querySelectorAll(".window-standart");
+        let OsWindowHeaderElement = document.querySelectorAll(".window-head");
+        let OsWindowSmallIconElement = document.querySelectorAll(".window-icon");
+        function settingsSaved() {
+            themeSelector()
+            function themeSelector () {
+                var sel = document.querySelector('#select-theme');
+                document.querySelector('#theme').href = 'css/' + sel.value + '.css';
+
+                localStorage.theme = sel.value;
+            }
+            
+            for(var i = 0; i < OsWindowElement.length; i++) {
+                if (shadowSettingTextBox.checked) {
+                    OsWindowElement[i].style.boxShadow = "0px 0px 13px 4px";
+                } else {
+                    OsWindowElement[i].style.boxShadow = "0px 0px 0px 0px";
+                }
+
+                if (roundSettingTextBox.checked) { 
+                    OsWindowElement[i].style.borderRadius = "12px";
+                    OsWindowHeaderElement[i].style.borderRadius = "9px 9px 0px 0px";
+                }  else { 
+                    OsWindowElement[i].style.borderRadius = "0px";
+                    OsWindowHeaderElement[i].style.borderRadius = "0px 0px 0px 0px";
+                }
+
+                if (smallIconsSettingTextBox.checked) { 
+                    OsWindowSmallIconElement[i].style.display = "block";
+                }  else { 
+                    OsWindowSmallIconElement[i].style.display = "none";
+                }
+            }
+            
+        }    
+            
+            
+            
+        //     if (shadowSettingTextBox.checked) { 
+        //         for(var i = 0; i < OsWindowElement.length; i++) {
+        //             OsWindowElement[i].style.boxShadow = "0px 0px 13px 4px";
+        //         }
+        //     } 
+        //     else { 
+        //         for(var i = 0; i < OsWindowElement.length; i++) {
+        //             OsWindowElement[i].style.boxShadow = "0px 0px 0px 0px";
+        //         }
+        //     }
+
+        //     if (roundSettingTextBox.checked) { 
+        //         for(var i = 0; i < OsWindowElement.length; i++) {
+        //             OsWindowElement[i].style.borderRadius = "12px";
+        //         }
+        //     } 
+        //     else { 
+        //         for(var i = 0; i < OsWindowElement.length; i++) {
+        //             OsWindowElement[i].style.boxShadow = "0px 0px 0px 0px";
+        //         }
+        //     }
+        // }
         function randColor() {
             var r = Math.floor(Math.random() * (256)),
                 g = Math.floor(Math.random() * (256)),
@@ -248,9 +354,10 @@
         var game = new OsWindow('game');
         // var beta = new OsWindow('beta');
         var notes = new OsWindow('notes');
+        var calendar = new OsWindow('calendar');
 
 
-        const windows = [app, options, sysInfo, calc, notepad, game, notes]; //Alex
+        const windows = [app, options, sysInfo, calc, notepad, game, notes, calendar]; //Alex
 
         /* //Alex: Не используется
         function openWindow(elClass) {
@@ -261,12 +368,12 @@
         */
 
         /* Функция смены темы */
-        document.querySelector('#select-theme').onchange = function () {
-            var sel = document.querySelector('#select-theme');
-            document.querySelector('#theme').href = 'css/' + sel.value + '.css';
+        // document.querySelector('#select-theme').onchange = function () {
+        //     var sel = document.querySelector('#select-theme');
+        //     document.querySelector('#theme').href = 'css/' + sel.value + '.css';
 
-            localStorage.theme = sel.value;
-        }
+        //     localStorage.theme = sel.value;
+        // }
 
         //        function folding(cls) {
         //            var el = document.querySelector('.' + cls);
@@ -286,11 +393,19 @@
         document.querySelector('.button').onclick = function () {
             document.querySelector('.menu').classList.toggle('menu-open')
             document.querySelector('.button').classList.toggle('button-menu-open')
+            if (document.querySelector('.menu').classList.contains('menu-open')) {
+                document.querySelector('.button').title = 'Закрыть меню';
+            }
+            else {
+                document.querySelector('.button').title = 'Открыть меню';
+            }
 
         }
         window.onload = setInterval(function () {
             a = new Date();
             document.querySelector('.date').innerHTML = a.toLocaleTimeString();
+            document.querySelector('.date2').innerHTML = a.toLocaleTimeString();
+
 
             //Alex
             windows.forEach(function (w) {
@@ -320,7 +435,7 @@
 
         function download() {
             if (localStorage.theme) {
-                document.querySelector('#theme').href = '/css/' + localStorage.theme + '.css';
+                document.querySelector('#theme').href = 'css/' + localStorage.theme + '.css';
                 document.querySelector('#select-theme').value = localStorage.theme;
             }
             document.querySelector('body').classList.toggle('start-download');
@@ -333,6 +448,7 @@
             document.querySelector('.window-notification').style.display = 'none';
             move();
             setTimeout(download, 3000);
+            // 3000
         }
 
 
@@ -458,6 +574,16 @@
         // переключатель плюс месяц
         document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function () {
             Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) + 1);
+        }
+
+        Calendar2("calendarWindow", new Date().getFullYear(), new Date().getMonth());
+        // переключатель минус месяц
+        document.querySelector('#calendarWindow thead tr:nth-child(1) td:nth-child(1)').onclick = function () {
+            Calendar2("calendarWindow", document.querySelector('#calendarWindow thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendarWindow thead td:nth-child(2)').dataset.month) - 1);
+        }
+        // переключатель плюс месяц
+        document.querySelector('#calendarWindow thead tr:nth-child(1) td:nth-child(3)').onclick = function () {
+            Calendar2("calendarWindow", document.querySelector('#calendarWindow thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendarWindow thead td:nth-child(2)').dataset.month) + 1);
         }
 
     </script>

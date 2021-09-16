@@ -3,7 +3,8 @@ body {
 
 }
 
-.date {
+.date,
+.date2 {
     background: #9e9e9e;
 }
 
@@ -35,5 +36,11 @@ body {
     background: #FF9800;
     overflow: hidden;
 */
+}
+
+@media screen and (max-width: 800px) {
+    .button {
+        display: none;
+    }
 }
 

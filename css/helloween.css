@@ -14,6 +14,10 @@
      border: 1px solid #dd8402;
  }
 
+ .menu-items li:not(:last-child) {
+    border-right: 1px solid #d05316c7;
+ }
+
  .button-menu-open {
     background-color: #d48103 ;
     border: 1px solid #af6a02 ;
