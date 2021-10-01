@@ -3,7 +3,8 @@ body {
 
 }
 
-.date {
+.date,
+.date2 {
     background: #9e9e9e;
     border: 1px solid black;
 }

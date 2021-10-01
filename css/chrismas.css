@@ -5,7 +5,8 @@
 
  }
 
- .date {
+ .date,
+ .date2 {
      background: #97d1ff;
      border: 1px solid #6e9dc2; 
  }

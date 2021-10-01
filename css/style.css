@@ -368,7 +368,11 @@
         }
 
         .calendar-link {
-            display: none;
+            display: none !important;
+        }
+
+        input {
+            background: #000000;
         }
         @media (max-width: 600px) {
             .button {
@@ -473,7 +477,7 @@
             }
 
             .calendar-link {
-                display: block;
+                display: block !important;
             }
 
             .bottom-calendar {
