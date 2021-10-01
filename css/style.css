@@ -241,7 +241,7 @@
         #calendar2,
         #calendarWindow {
             width: 190px;
-            font: monospace;
+            font: Roboto;
             line-height: 1.2em;
             font-size: 15px;
             text-align: center;
@@ -367,7 +367,10 @@
             font-family: 'Roboto';
         }
 
-        @media (max-width: 400px) {
+        .calendar-link {
+            display: none;
+        }
+        @media (max-width: 600px) {
             .button {
                 display: none;
             }
@@ -467,6 +470,24 @@
 
             #greenBar {
                 font-size: 13px;
+            }
+
+            .calendar-link {
+                display: block;
+            }
+
+            .bottom-calendar {
+                display: none;
+            }
+
+            #calendar2, #calendarWindow {
+                width: 100%;
+                font-size: 20px;
+            }
+
+            #calendar2 tbody td,
+            #calendarWindow tbody td {
+                padding: 8px;
             }
 
         }

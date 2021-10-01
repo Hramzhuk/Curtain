@@ -27,7 +27,7 @@
                 <li onclick="app.showWindow()" title="открыть вкладку приложения">Приложения</li>
                 <li onclick="options.showWindow()" title="открыть вкладку настройки">Настройки</li>
                 <li onclick="sysInfo.showWindow()" title="открыть вкладку система">Система</li>
-                <li onclick="calendar.showWindow()" title="открыть вкладку календарь">Календарь</li>
+                <li onclick="calendar.showWindow()" title="открыть вкладку календарь" class="calendar-link">Календарь</li>
                 <li><a class="donation" href="https://yoomoney.ru/to/4100116303857614">Пожертвовать</a></li>
                 <li><a class="YarOS" href="https://forms.gle/dWQDAhM8pBCjmru7A">Форма поддержки YarOS</a></li>
                 <li><a class="YarOS" href="YarOS_Site_Index.html">Сайт YarOS</a></li>
@@ -491,7 +491,8 @@
 
         //Alex
         function makeDraggable(sel) {
-            var wnd = document.querySelector(sel);
+            if (window.screen.width == 360) {
+                var wnd = document.querySelector(sel);
             wnd.ondblclick = function (e) {
                 // подготовить к перемещению
                 // 2. разместить на том же месте, но в абсолютных координатах
@@ -524,6 +525,8 @@
                     wnd.onmouseup = null;
                 }
             }
+            }
+            
         }
 
 
