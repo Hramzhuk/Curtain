@@ -31,6 +31,7 @@
                 <li><a class="donation" href="https://yoomoney.ru/to/4100116303857614">Пожертвовать</a></li>
                 <li><a class="YarOS" href="https://forms.gle/dWQDAhM8pBCjmru7A">Форма поддержки YarOS</a></li>
                 <li><a class="YarOS" href="YarOS_Site_Index.html">Сайт YarOS</a></li>
+                <li><a class="YarOS" href="https://docs.google.com/forms/d/1fq1J8ulRmI7JFBiUwFgigVSEVAlugpMy2jIMWtKPqtA/edit?usp=sharing">Предложить функцию</a></li>
             </ul>
         </div>
         <div class="bottom-calendar">
@@ -316,12 +317,12 @@
             }
 
             showWindow() {
-                this.element.style.display = 'block';
+                this.element.style.opacity = '100';
                 this.element.style.zIndex = OsWindow.prototype.priore++; //Alex
             }
 
             closeWindow() {
-                this.element.style.display = 'none';
+                this.element.style.opacity = '0';
 
             }
 
@@ -334,11 +335,13 @@
                 console.log(this.element.children[0].children[0]);
                 newEl.innerHTML = this.element.children[0].children[1].innerHTML[0].toUpperCase();
                 var cls = this.selector; //Alex
+                document.querySelector(".folding").style.opacity = "100";
                 newEl.onclick = function () {
                     OsWindow.prototype.priore++;
                     document.querySelector(cls).style.left = "35%";
                     document.querySelector(cls).style.zIndex = OsWindow.prototype.priore;
                     newEl.remove();
+                    document.querySelector(".folding").style.opacity = "0";
                 }
                 document.querySelector('.folding').append(newEl);
             }
@@ -491,7 +494,7 @@
 
         //Alex
         function makeDraggable(sel) {
-            if (window.screen.width == 600) {
+            if (window.screen.width >= 600) {
                 var wnd = document.querySelector(sel);
             wnd.ondblclick = function (e) {
                 // подготовить к перемещению
@@ -505,9 +508,9 @@
                 // передвинуть мяч под координаты курсора
                 // и сдвинуть на половину ширины/высоты для центрирования
                 function moveAt(e) {
-                    console.log('x ' + e.pageX);
-                    console.log('y ' + e.pageY);
-                    if (e.pageX < 1146 & e.pageX > 132 & e.pageY > 169 & e.pageY < 562) {
+                    // console.log('x ' + e.pageX);
+                    // console.log('y ' + e.pageY);
+                    if (e.pageX < window.screen.width - 200 & e.pageX > 132 & e.pageY > 169 & e.pageY < 562) {
                         wnd.style.left = e.pageX - wnd.offsetWidth / 2 + 'px';
                         wnd.style.top = e.pageY - wnd.offsetHeight / 2 + 'px';
                     }
